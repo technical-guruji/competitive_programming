@@ -1,0 +1,23 @@
+def pascal(n):
+    pascal_list = []
+    for i in range(n):
+        temp = []
+        for j in range(i+1):
+            if j == 0 or j == i:
+                temp.append(1)
+            else:
+                temp.append(pascal_list[i-1][j-1] + pascal_list[i-1][j])
+        pascal_list.append(temp)
+
+    # for i in pascal_list:
+    #     print(i)
+
+    for i in range(n):
+        for j in range(n-1-i):
+            print(" ", end = "")
+        for k in range(i+1):
+            print(pascal_list[i][k], end=" ")
+        print()
+
+
+pascal(4)
